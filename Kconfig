@@ -1,0 +1,7 @@
+
+config EXTERNAL_LIBSVM
+  bool "LIBSVM Library"
+  default n
+  ---help---
+  LIBSVM library providing Support Vector Machines models
+  
