@@ -12,6 +12,7 @@ MODULE_DIR_LIBSVM=external/optional/libsvm
 LIBSVM_VERSION="323"
 
 libsvm: 
+	@cd $(MODULE_DIR_LIBSVM) && autoreconf -i
 	@cd $(MODULE_DIR_LIBSVM) && ./configure --prefix=$(shell pwd)/out
 	@echo
 	@echo "==== Installing LIBSVM Library ($(LIBSVM_VERSION)) ===="
@@ -25,6 +26,7 @@ libsvm:
 	@cd $(MODULE_DIR_LIBSVM) && \
 	        make -j$(CPUS) install || \
 	        exit 1
+	@cd $(MODULE_DIR_LIBSVM) && make maintainer-clean
 
 clean_libsvm:
 	@echo "==== Clean-up LIBSVM library ===="
